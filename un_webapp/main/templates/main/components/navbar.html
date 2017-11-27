@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+  <a class="navbar-brand" href="{%url 'index' %}">UNOM: United Nations Opportunity Matcher</a>
+  
+  <ul class="nav navbar-nav ml-auto user-auth-option">
+  {% if user.is_authenticated %}
+    <li class="nav-item">
+      <a href="{% url 'auth_logout' %}" role="button" class="btn btn-outline-danger">Log Out</a>
+    </li>
+  {% else %}
+    <li class="nav-item">
+      <a href="{% url 'registration_register' %}" role="button" class="btn btn-outline-success">Sign up</a>
+    </li>
+    <li class="nav-item">
+      <a href="{% url 'auth_login' %}" role="button" class="btn btn-outline-success">Log in</a>
+    </li>
+  {% endif %}
+  </ul>
+  <ul class="nav navbar-nav ml-auto float-right">
+    <li class="nav-item">
+      <a href="{% url 'user_profile'%}" role="button" class="btn btn-outline-danger">My profile</a>
+    </li>
+  </ul>
+</nav>

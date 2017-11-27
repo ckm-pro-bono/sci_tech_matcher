@@ -1,0 +1,11 @@
+Django<2
+django-debug-toolbar>=1.6
+django-allauth>=0.31.0
+django-extensions>=1.7.5
+django-registration-redux>=1.7
+reportlab>=3.4.0
+pandas>=0.21.0
+psycopg2>=2.6.2
+PyYAML>=3.12
+gunicorn>=19.6.0
+django-ipware>=1.1.6

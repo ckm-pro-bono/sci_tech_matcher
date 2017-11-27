@@ -1,0 +1,3 @@
+ACCOUNT_ACTIVATION_DAYS = 7
+REGISTRATION_EMAIL_HTML = True
+REGISTRATION_FORM = 'main.forms.ExtendedUserCreationForm'

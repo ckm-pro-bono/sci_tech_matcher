@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+  <div class="row">
+   <div class="col-7">
+
+     {% if results %}
+    <h2>Results</h2><br>
+
+     <ul class="list-group">
+     	{% for result in results %}
+
+      <li>
+          <h6 class='result-link'><a href="{{result.id}}">{{result.title}}</a></h6>
+          <p class='result-description'>{{result.short_description}}</p>
+          <div class='row'>
+            <div class='col-sm-4 result-option'>
+              <a href="{{ result.url}}">Go to source</a>
+            </div>
+            {% if user.is_authenticated %}
+              <div class='col-sm-4 result-option'> <!--spacing -->
+                <a href="save-content" class='save-content' data-pk="{{result.id}}">Save</a>
+              </div>
+            {% endif %}
+          </div> <br />
+      </li>
+
+
+     	{% endfor %}
+     </ul>
+
+     {% endif %}
+
+     <ul class="pagination">
+     <!-- {% if results.has_previous %} -->
+         <li>
+             <span><a href="?page={{ results.previous_page_number }}&id={{ query_id }}">Previous&nbsp;-&nbsp;</a></span>
+         </li>
+     <!-- {% endif %} -->
+         <li class="">
+             <span> Page {{ results.number }} of {{ results.paginator.num_pages }}</span>
+         </li>
+     <!-- {% if results.has_next %} -->
+         <li>
+             <span><a href="?page={{ results.next_page_number }}&id={{ query_id }}">&nbsp;-&nbsp;Next</a></span>
+         </li>
+     <!-- {% endif %} -->
+     </ul>
+   </div>
+   <div class="col-1">
+   </div>
+   <div class="col-4">
+     {% include 'main/components/search_form.html' %}
+   </div>
+ </div>
+</div>
+
+<!-- </div> -->
+<!-- <div>
+  <form action="{%url 'search_results' %}" method="post">
+    {% csrf_token %}
+    {{query.as_p}}
+    <input name="query_submit" type='submit' value='Search' />
+  </form>
+</div> -->
+
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+  <div class='col-12 info'>
+    <strong>United Nations Opportunity Matcher (UNOM)</strong> is a search platform that unifies science and technology offers, requests, and publications from reputable, UN-sanctioned sources.
+  </div>
+    <div class="col-12 form-container">
+      {% include 'main/components/search_form.html' %}
+    </div>
+  </div>
+  <div class='col-12 about'>
+    UNOM is <a href="https://ckmadvisors.com/">CKM Advisors'</a> Pro Bono submission to the <a href="https://scitechmatcher.uniteideas.spigit.com/">#Scitechmatcher</a>  UNite Ideas Challenge. 
+  </div>
+{% endblock %}

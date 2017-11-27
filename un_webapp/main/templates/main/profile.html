@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class='container'>
+<div class='row'>
+  <div class='col-md-12'>
+    {% if user.is_authenticated %}
+      <h2 class='user-heading'>Saved Items and Searches<!-- this should link to a page to edit your details etc --></h2>
+
+    {% else %}
+
+      <h2 class='user-heading'>Your previous activity in this session is below.</h2>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-md-12' style='padding-top:15px;'>
+
+        <p>To save searches and content permanently, please <a href="{% url 'registration_register' %}">sign up</a> or <a href="{% url 'auth_login' %}">log in</a>.</p>
+
+    {% endif %}
+  </div>
+</div>
+
+<div class='row' style='padding-top:20px;'>
+  <div class='col-md-6' style='height:550px;position:relative;'>
+    <h3>Previously searched:</h3>
+    <div class='profile-list-container' style="max-height:100%;overflow:auto;">
+      <ul class='profile-list'>
+        {% for search in searches %}
+
+          <li>
+            <span class='search-link'>
+              <a href='/search/results/?id={{ search.id }}'>{{search.text}}</a></span>
+            <span class='search-detail'>
+            <i>(
+                {% if search.offer %}
+                Tech Offer
+                {% endif %}
+                {% if search.request %}
+                Tech Request
+                {%endif%}
+                
+
+                )</span>
+              <span class='search-time'>{{search.query_time|date:"d-m-y H:i"}}</span></i>
+          </li> 
+
+        {% endfor %}
+      </ul>
+    </div><!--end list container-->
+  </div><!--end col-->
+  {% if user.is_authenticated %}
+
+    <div class='col-md-6' style='height:550px;position:relative;'>
+      <h3>Saved items:</h3>
+      <div class='profile-list-container' style="max-height:100%;overflow:auto;">
+        <ul class='profile-list'>
+          {% for content in saved_content %}
+          <li class='saved-item'><span class='save-link'><a href='/search/results/{{ content.id }}'>{{content.title }}</a></span></li>
+        {% endfor %}
+        </ul>
+      </div><!-- end profile list-->
+    </div><!-- end profile container -->
+  </div><!-- end col -->
+  {% endif %}
+</div><!-- end row -->
+</div><!-- end container -->
+{% endblock %}

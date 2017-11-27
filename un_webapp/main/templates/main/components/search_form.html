@@ -1,0 +1,113 @@
+<div>
+  <form action="{%url 'search_results' %}" method="post">
+    <div class="form-group">
+      <br>
+      {% csrf_token %}
+      <div class="fieldWrapper">
+        <div class="input-group input-group-lg">
+          <input class="form-control" value="{{query.text.value | default:''}}" placeholder="Search" aria-describedby="sizing-addon1" name="{{query.text.name}}" id="{{query.text.id_for_label}}">
+        </div>
+        <br><br>
+      </div>
+
+      <div class="btn-group" data-toggle="buttons">
+        {% if query.offer.value %}
+        <label class="btn btn-secondary active btn-outline-warning">
+        {% else %}
+        <label class="btn btn-secondary btn-outline-warning">
+        {% endif %}
+
+        <input type="checkbox" autocomplete="off" name="{{query.offer.name}}" id="{{query.offer.id_for_label}}" {% if query.offer.value %}checked{% endif %} > Include Offers
+        </label>
+      </div>
+
+      <div class="btn-group" data-toggle="buttons">
+        {% if query.request.value %}
+        <label class="btn btn-secondary active btn-outline-warning">
+        {% else %}
+        <label class="btn btn-secondary btn-outline-warning">
+        {% endif %}
+
+        <input type="checkbox" autocomplete="off" name="{{query.request.name}}" id="{{query.request.id_for_label}}" {% if query.request.value %}checked{% endif %}> Include Requests
+        </label>
+      </div>
+
+      <div class="btn-group" data-toggle="buttons">
+        {% if query.publication.value %}
+        <label class="btn btn-secondary active btn-outline-warning">
+        {% else %}
+        <label class="btn btn-secondary btn-outline-warning">
+        {% endif %}
+
+        <input type="checkbox" autocomplete="off" name="{{query.publication.name}}" id="{{query.publication.id_for_label}}" {% if query.publication.value %}checked{% endif %}> Include Publications
+        </label>
+      </div>
+
+      <div class="row">
+        {% if advanced %}
+        <div class="col-12">
+        {% else %}
+        <div class="col-4">
+        {% endif %}
+          <div class="form-group">
+            <label>Filter years:</label>
+            <select class="form-control" name="{{query.year.name}}" id="{{query.year.id_for_label}}">
+              {% for key, option in query.fields.year.choices %}
+              <option value="{{option}}" {% if query.year.value == option %}selected="selected"{% endif %}>
+              {{key}}
+              </option> 
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+        
+        {% if advanced %}
+        <div class="col-12">
+        {% else %}
+        <div class="col-4">
+        {% endif %}
+          <div class="form-group">
+            <label> Filter country:</label>
+            <select class="form-control" name="{{query.country.name}}" id="{{query.country.id_for_label}}">
+              {% for key, option in query.fields.country.choices %}
+              <option value="{{ option }}" {% if query.country.value == option %}selected="selected"{% endif %}>
+              {{ key }}
+              </option> 
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+
+        {% if advanced %}
+        <div class="col-12">
+        {% else %}
+        <div class="col-4">
+        {% endif %}
+          <div class="form-group">
+            <label> Filter organization:</label>
+            <select class="form-control" name="{{query.organization.name}}" id="{{query.organization.id_for_label}}">
+              {% for key, option in query.fields.organization.choices %}
+              <option value="{{ option }}" {% if query.organization.value == option %}selected="selected"{% endif %}>
+              {{ key }}
+              </option> 
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+
+      </div>
+
+      <br><br>
+    </div>
+    <!-- {% for option in options %} -->
+    <div class="form-check form-check-inline">
+      <label class="form-check-label">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"> 1
+      </label>
+    </div>
+    <!-- {% endfor %} -->
+  </div>
+    <button name="query_submit" type="submit" class="btn btn-primary btn-lg">Submit</button>
+</div>
+  </form>
+</div>

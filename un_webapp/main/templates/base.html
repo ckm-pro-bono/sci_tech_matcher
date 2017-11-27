@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% load static %}
+        {% block meta %}{% endblock %}
+        {% block header %}{% endblock %}
+        <link rel="icon" type="image/png" href="{% static 'images/CKMAdvisors_small.png' %}">
+        <script type="text/javascript" src="{% static 'main/js/checkcookies.js' %}"></script>
+        <!-- Add Material font (Roboto) and Material icon as needed -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- CSS -->
+        <!-- Add Material CSS, replace Bootstrap CSS -->
+        <link rel="stylesheet" type="text/css" href="{% static 'main/css/material.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'main/stylesheets/application.css' %}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+        <script src="{% static 'main/js/bootstrap.min.js' %}"></script>
+        <!-- Then Material JavaScript on top of Bootstrap JavaScript -->
+        <script src="{% static 'main/js/material.min.js' %}"></script>
+        <script src="{% static 'main/js/application.js' %}"></script>
+        <script>
+          var user = {{user.id}}
+        </script>
+    </head>
+    <body>
+      {% include 'main/components/navbar.html' %}
+      <div id="main">
+        {% block content %}{% endblock %}
+      </div>
+    </body>
+</html>
