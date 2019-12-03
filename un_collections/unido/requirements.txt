@@ -72,7 +72,7 @@ dnspython==1.15.0
 docker==2.5.1
 docker-pycreds==0.2.1
 docutils==0.13.1
-ecdsa==0.13
+ecdsa==0.13.3
 entrypoints==0.2.2
 enum34==1.1.6
 ephem==3.7.6.0
