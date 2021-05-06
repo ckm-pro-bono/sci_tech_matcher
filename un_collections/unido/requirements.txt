@@ -81,7 +81,7 @@ Fabric==1.14.0
 fastcache==1.0.2
 faulthandler==2.6
 Flask==0.12.2
-Flask-Cors==3.0.2
+Flask-Cors==3.0.9
 flower==0.9.2
 funcsigs==1.0.2
 functools32==3.2.3.post2
