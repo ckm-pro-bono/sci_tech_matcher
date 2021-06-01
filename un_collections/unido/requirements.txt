@@ -244,7 +244,7 @@ ua-parser==0.7.3
 unicodecsv==0.14.1
 Unidecode==0.4.21
 unittest-xml-reporting==2.1.0
-urllib3==1.22
+urllib3==1.26.5
 user-agents==1.1.0
 vine==1.1.4
 wcwidth==0.1.7
