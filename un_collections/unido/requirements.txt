@@ -161,7 +161,7 @@ patsy==0.4.1
 pep8==1.7.0
 pexpect==4.2.1
 pickleshare==0.7.4
-Pillow==4.1.1
+Pillow==9.0.1
 ply==3.10
 pox==0.2.3
 ppft==1.6.4.7.1
