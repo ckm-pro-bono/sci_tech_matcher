@@ -48,7 +48,7 @@ decorator==4.0.11
 defusedxml==0.5.0
 delegator.py==0.0.13
 dill==0.2.7.1
-distributed==1.16.3
+distributed==2021.10.0
 Django==1.10.7
 django-bulk-update==2.2.0
 django-cachalot==1.5.0
